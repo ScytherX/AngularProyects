@@ -1,0 +1,32 @@
+<input type="text" [(ngModel)]="title">
+{{ title }}
+
+<!--Imprime el nombre del personaje solo se si cumple 
+    alguna de las condiciones-->
+<div [ngSwitch] = "title">
+  <p *ngSwitchCase = "'Batman'">Este es Batman</p>
+  <p *ngSwitchCase = "'Deadpool'">Este es Deadpool</p>
+  <p *ngSwitchCase = "'Scorpion'">Este es Scorpion</p>
+  <p *ngSwitchDefault>no hay match</p>
+</div>
+
+
+<!--Boton para agregar un item-->
+<button (click)="addItem()">Add item</button>
+
+
+<!--Se acciona si y solo si la lista de productos 
+      esta vacia-->
+<ul> 
+  <li *ngIf="items.length === 0">la lista esta vacia</li>
+  <li *ngFor="let name of items; index as i">
+    {{ name }} {{ i }}
+    <button (click)="deleteItem(i)">delete</button>
+  </li>
+</ul>
+
+<!--Ciclo para iterar los productos y mostrarlos-->
+<div *ngFor="let product of products">
+  <app-product (productClicked)="clickProduct($event)" [product]="product"></app-product>
+</div>
+

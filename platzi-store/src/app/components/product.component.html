@@ -1,0 +1,6 @@
+
+<h3>{{ product.title }}</h3> <!--header tamaño 3-->
+  <img [src]="product.image" alt=""> <!--Hago referencia a la imagen y con [] 
+                                         modifico el atributo del objeto-->
+   <strong>{{ product.price }}</strong> <!--Encierro el precio-->
+   <button (click)="addCart()">Agregar al carrito</button> <!--Imprime agregado al carrito-->
